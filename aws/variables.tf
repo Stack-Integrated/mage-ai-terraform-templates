@@ -75,23 +75,23 @@ variable "ecs_task_memory" {
   default     = 8192
 }
 
-variable "public_subnets" {
-  description = "List of public subnets"
-  default     = ["10.32.100.0/24", "10.32.101.0/24"]
-}
-
-variable "private_subnets" {
-  description = "List of private subnets"
-  default     = ["10.32.0.0/24", "10.32.1.0/24"]
-}
-
-variable "availability_zones" {
-  description = "List of availability zones"
-  default     = ["us-west-2a", "us-west-2b"]
-}
-
 variable "enable_ci_cd" {
   description = "A flag to enable/disable the CI/CD null resource"
   type        = bool
   default     = false
+}
+
+variable "vpc_id" {
+  description = "ID of the existing VPC"
+  type        = string
+}
+
+variable "lb_arn" {
+  description = "ARN of the existing ALB"
+  type        = string
+}
+
+variable "lb_security_group_id" {
+  description = "ID of the existing security group for ALB"
+  type        = string
 }

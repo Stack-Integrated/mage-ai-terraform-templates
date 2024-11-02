@@ -3,7 +3,7 @@
 resource "aws_db_subnet_group" "rds_subnet_group" {
   name        = "${var.app_name}-${var.app_environment}-rds-subnet-group"
   description = "${var.app_name} RDS subnet group"
-  subnet_ids  = aws_subnet.public.*.id
+  subnet_ids  = data.aws_subnets.public.ids
   tags = {
     Environment = var.app_environment
   }
@@ -13,7 +13,7 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
 resource "aws_security_group" "rds_sg" {
   name        = "${var.app_name}-${var.app_environment}-rds-sg"
   description = "${var.app_name} RDS Security Group"
-  vpc_id      = aws_vpc.aws-vpc.id
+  vpc_id      = data.aws_vpc.aws-vpc.id
 
   tags = {
     Name        = "${var.app_name}-${var.app_environment}-rds-sg"
