@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "container_repository" {
-  name                 = "${var.app_name}-${var.app_environment}-repository"
+  name                 = var.app_name
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
@@ -7,7 +7,7 @@ resource "aws_ecr_repository" "container_repository" {
   }
 
   tags = {
-    Name        = "${var.app_name}-repository"
+    Name        = var.app_name
     Environment = var.app_environment
   }
 
