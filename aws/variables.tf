@@ -95,3 +95,8 @@ variable "lb_security_group_id" {
   description = "ID of the existing security group for ALB"
   type        = string
 }
+
+variable "host_name" {
+  description = "Hostname for mage"
+  type        = string
+}

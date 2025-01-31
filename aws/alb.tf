@@ -51,7 +51,7 @@ resource "aws_lb_listener_rule" "hostname_based_routing" {
 
   condition {
     host_header {
-      values = ["example.com"]  # Replace with your desired hostname
+      values = [var.host_name]  # Replace with your desired hostname
     }
   }
 }
